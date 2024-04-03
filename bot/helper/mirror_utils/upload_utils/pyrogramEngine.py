@@ -371,8 +371,6 @@ class TgUploader:
         try:
             is_video, is_audio, is_image = await get_document_type(self.__up_path)
 
-            if self.__leech_utils['thumb']:
-                thumb = await self.get_custom_thumb(self.__leech_utils['thumb'])
             
             if not is_image and thumb is None:
                 file_name = ospath.splitext(file)[0]
