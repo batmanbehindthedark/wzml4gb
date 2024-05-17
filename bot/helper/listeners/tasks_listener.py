@@ -295,6 +295,7 @@ class MirrorLeechListener:
                         if (await get_document_type(video_file))[0]:
                             outfile = ospath.join(self.newDir, file)
                             await edit_metadata(self, dirpath, video_file, outfile, metadata)
+                            
         if self.compress:
             pswd = self.compress if isinstance(self.compress, str) else ''
             if up_path:
