@@ -225,7 +225,7 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
                 buttons.ibutton("Disable Media Group", f"userset {user_id} mgroup", "header")
             else:
                 buttons.ibutton("Enable Media Group", f"userset {user_id} mgroup", "header")
-        elif key in ['lprefix', 'lremname', 'lsuffix', 'lcaption', 'ldump, 'lmeta']:
+        elif key in ['lprefix', 'lremname', 'lsuffix', 'lcaption', 'ldump', 'lmeta']:
             set_exist = 'Not Exists' if (val:=user_dict.get(key, config_dict.get(f'LEECH_FILENAME_{key[1:].upper()}', ''))) == '' else val
             if set_exist != 'Not Exists' and key == "ldump":
                 set_exist = '\n\n' + '\n'.join([f"{index}. <b>{dump}</b> : <code>{ids}</code>" for index, (dump, ids) in enumerate(val.items(), start=1)])
