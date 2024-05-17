@@ -615,7 +615,7 @@ async def edit_user_settings(client, query):
         pfunc = partial(set_custom, pre_event=query, key=data[2])
         rfunc = partial(update_user_settings, query, data[2], 'mirror' if data[2] in ['ddl_servers', 'user_tds'] else "ddl_servers")
         await event_handler(client, query, pfunc, rfunc)
-    elif data[2] in ['lprefix', 'lsuffix', 'lremname', 'lcaption', 'ldump', 'mprefix', 'msuffix', 'mremname', 'lmeta']:
+    elif data[2] in ['lprefix', 'lsuffix', 'lremname', 'lcaption', 'ldump', 'mprefix', 'msuffix', 'mremname']:
         handler_dict[user_id] = False
         await query.answer()
         edit_mode = len(data) == 4
