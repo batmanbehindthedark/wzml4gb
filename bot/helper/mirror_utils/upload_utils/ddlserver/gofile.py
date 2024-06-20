@@ -15,14 +15,12 @@ class Gofile:
         
 
     @staticmethod
-   async def is_goapi(token):
+    async def is_goapi(token):
     if ":" not in token:
         return False
-    
     token_parts = token.split(':')
     if len(token_parts) != 2:
         return False
-
     async with session.get(f"https://api.gofile.io/accounts/{token_parts[0]}?token={token_parts[1]}&allDetails=true") as resp:
                 if (await resp.json())["status"] == "ok":
                     return True
